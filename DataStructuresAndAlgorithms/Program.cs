@@ -1,12 +1,17 @@
 ﻿using System;
-
+using DataStructuresAndAlgorithms.Array;
 namespace DataStructuresAndAlgorithms
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MyArray numbers = new MyArray(1);
+            numbers.Insert(10);
+            numbers.Insert(20);
+            numbers.Insert(30);
+            numbers.Print();
+
         }
     }
 }
