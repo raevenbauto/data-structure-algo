@@ -11,7 +11,6 @@ namespace DataStructuresAndAlgorithms
             numbers.Insert(20);
             numbers.Insert(30);
             numbers.Print();
-
         }
     }
 }

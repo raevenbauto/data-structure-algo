@@ -6,6 +6,13 @@ using System.Threading;
 
 namespace DataStructuresAndAlgorithms.Array
 {
+    /*
+     *  LookUp By Index = O(1)
+     *  LookUp By Value = O(N)
+     *  Insert = O(N)
+     *  Delete = O(N)
+     */
+
     public class MyArray
     {
         private int[] items;
