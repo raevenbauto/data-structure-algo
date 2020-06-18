@@ -145,7 +145,31 @@ namespace DataStructuresAndAlgorithms.LinkedList
 
         public void Reverse()
         {
-            this.AddTail(10000);
+            var current = Head;
+            var previous = new Node(Head.Value);
+            Tail = previous;
+
+            while (current.Next != null)
+            {
+                var node = new Node(current.Next.Value);
+                node.Next = previous;
+                previous = node;
+                current = current.Next; 
+            }
+
+            Head = previous; 
+        }
+
+        public void Print()
+        {
+            var current = Head;
+            var result = "";
+            while (current != null)
+            {
+                result += $"{current.Value}=>";
+                current = current.Next; 
+            }
+            Console.WriteLine(result);
         }
 
         /*
