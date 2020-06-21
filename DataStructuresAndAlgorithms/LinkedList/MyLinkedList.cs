@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace DataStructuresAndAlgorithms.LinkedList
 {
@@ -143,20 +144,95 @@ namespace DataStructuresAndAlgorithms.LinkedList
             return arr;
         }
 
+        //O(N)
         public void Reverse()
         {
-            this.AddTail(10000);
+            //H                   T
+            //1 <== 2 <== 3 => 4 => 5
+            //                 p    c    
+            //                      n
+            //T                          H
+            //1 <==  2 <==  3 <==  4 <== 5
+
+            var previous = new Node(Head.Value);
+            var current = Head.Next;
+            Tail = previous;
+
+            while (current != null)
+            {
+                var next = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = next;
+            }
+
+            Head = previous; 
         }
 
-        /*
-         *  Implement the following.
-         *  AddHead
-         *  AddTail
-         *  DeleteHead
-         *  DeleteTail
-         *  Contains
-         *  IndexOf
-         */
+        public void Print()
+        {
+            var output = "";
+            var current = Head;
+
+            while (current != null)
+            {
+                output += current.Value + "=>";
+                current = current.Next;
+            }
+
+            Console.WriteLine(output);
+        }
+
+        public int KthNodeFromEnd(int value)
+        {
+            //n=2
+            //1 => 2 => 3 => 4 => 5
+            //LEADER
+            //                    *    
+            //FOLLOWER
+            //          *
+
+            var leader = Head;
+            var follower = Head;
+
+            for (var i = 0; i < value; i++)
+            {
+                if (leader == null)
+                    return -1;
+
+                leader = leader.Next;
+            }
+
+            while (leader != null)
+            {
+                leader = leader.Next;
+                follower = follower.Next;
+            }
+
+            return follower.Value; 
+
+
+            /*
+             * If the length of the List is known.
+               var curr = Head;
+                var length = Size; 
+
+                while (curr != null)
+                {
+                    if (length == value)
+                        return curr.Value;
+
+                    curr = curr.Next; 
+                    length--; 
+                }
+
+                return -1; 
+             */
+
+
+        }
+
+
     }
 
 

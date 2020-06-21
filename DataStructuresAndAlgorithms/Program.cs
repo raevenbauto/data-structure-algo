@@ -10,14 +10,15 @@ namespace DataStructuresAndAlgorithms
         static void Main(string[] args)
         {
             var myll = new MyLinkedList();
-            myll.AddHead(100);
-            myll.AddHead(200);
-            myll.AddHead(300);
-            myll.AddTail(400);
-            myll.AddTail(500);
-            myll.Reverse();
+            myll.AddTail(10);
+            myll.AddTail(20);
+            myll.AddTail(30);
+            myll.AddTail(40);
+            myll.AddTail(50);
 
-            Console.WriteLine(myll.ToArray().ToString());
+
+            Console.WriteLine(myll.KthNodeFromEnd(2));
+            myll.Print();
         }
     }
 }
